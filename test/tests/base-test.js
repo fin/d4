@@ -99,6 +99,9 @@ describe('d4.base', function() {
             // min is a function of d4
             y.min(1);
 
+            // nice is a d4-enhanced wrapper for the d3.scale function
+            y.nice(false);
+
           }).to.not.throw(Error);
         });
       });

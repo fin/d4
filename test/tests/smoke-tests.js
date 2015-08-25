@@ -179,6 +179,26 @@ describe('smoke tests', function() {
     expect(d3.select('.series0')[0][0]).to.not.be.an('null');
   });
 
+  it('should render a basic row chart, while nicing values', function() {
+    var data = [
+        { x: '2010', y:-10 },
+        { x: '2011', y:20 },
+        { x: '2012', y:30 },
+        { x: '2013', y:40 },
+        { x: '2014', y:51 },
+      ];
+    var chart = d4.charts.row();
+    chart.y(function(y) {
+      y.scale('linear');
+      y.nice(true);
+    });
+    d3.select('#chart')
+    .datum(data)
+    .call(chart);
+    console.log(chart);
+    expect(d3.select('.series0')[0][0]).to.not.be.an('null');
+  });
+
   it('should render a basic stacked column chart', function() {
     var data = [
         { year: '2010', unitsSold: 200, salesman : 'Bob' },

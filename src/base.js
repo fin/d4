@@ -214,6 +214,51 @@
       resetFunct();
       return dimension;
     };
+
+    dimension.$nice = -1;
+    dimension.nice = function(tick_count) {
+      if (!arguments.length) {
+        return dimension.$nice;
+      }
+      dimension.$nice = tick_count;
+
+      var nice_level = parseInt(tick_count);
+
+      if (isNaN(nice_level) && nice_level) {
+        scale.nice();
+      } else {
+        if (!isNaN(nice_level) && nice_level >= 0) {
+          scale.nice(nice_level);
+        }
+        else {
+          dimension.domain(dimension.$domain); /* reset domain */
+        }
+      }
+      return dimension;
+    };
+
+    dimension.$domain = [];
+    var orig_domain = dimension.domain;
+    dimension.domain = function(val) {
+      console.log(val);
+      if (!arguments.length) {
+        return dimension.$domain;
+      }
+      dimension.$domain = val;
+      orig_domain.apply(scale, arguments);
+
+      var nice_level = parseInt(dimension.$nice);
+
+      if (isNaN(nice_level) && nice_level) {
+        scale.nice();
+        console.log('nicing w/o args');
+      }
+      if (!isNaN(nice_level) && nice_level >= 0) {
+        scale.nice(nice_level);
+        console.log('nicing w/ args');
+      }
+      return dimension;
+    }
   };
 
   var createAxisScale = function(dimension, opts, axis) {
