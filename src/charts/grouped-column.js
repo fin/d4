@@ -69,19 +69,19 @@
     };
 
     return d4.baseChart(d4.extend({
-      config: {
-        axes: {
-          groups: {
-            scale: 'ordinal',
-            dimension: 'x',
-            roundBands: 0.1
+        config: {
+          axes: {
+            groups: {
+              scale: 'ordinal',
+              dimension: 'x',
+              roundBands: 0.1
+            }
+          },
+          accessors: {
+            groupsOf: 1
           }
-        },
-        accessors: {
-          groupsOf: 1
         }
-      }
-    }, _config))
+      }, _config))
       .mixin([{
         'name': 'bars',
         'feature': d4.features.groupedColumnSeries

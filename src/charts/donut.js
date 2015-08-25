@@ -73,17 +73,17 @@
   d4.chart('donut', function donut(config) {
     var _config = config || {};
     return d4.baseChart(d4.extend({
-      config: {
-        accessors: {
-          radius: function() {
-            return Math.min(this.width, this.height) / 2;
-          },
-          arcWidth: function(radius) {
-            return radius / 3;
+        config: {
+          accessors: {
+            radius: function() {
+              return Math.min(this.width, this.height) / 2;
+            },
+            arcWidth: function(radius) {
+              return radius / 3;
+            }
           }
         }
-      }
-    }, _config))
+      }, _config))
       .mixin([{
         'name': 'arcs',
         'feature': d4.features.arcSeries

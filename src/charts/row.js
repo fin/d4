@@ -32,24 +32,24 @@
   d4.chart('row', function row(config) {
     var _config = config || {};
     return d4.baseChart(d4.extend({
-      config: {
-        margin: {
-          top: 20,
-          right: 40,
-          bottom: 20,
-          left: 40
-        },
-        valueKey: 'x',
-        axes: {
-          x: {
-            scale: 'linear'
+        config: {
+          margin: {
+            top: 20,
+            right: 40,
+            bottom: 20,
+            left: 40
           },
-          y: {
-            scale: 'ordinal'
+          valueKey: 'x',
+          axes: {
+            x: {
+              scale: 'linear'
+            },
+            y: {
+              scale: 'ordinal'
+            }
           }
         }
-      }
-    }, _config))
+      }, _config))
       .mixin([{
         'name': 'bars',
         'feature': d4.features.rectSeries

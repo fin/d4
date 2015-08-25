@@ -126,18 +126,18 @@
   d4.chart('scatterPlot', function scatterPlot(config) {
     var _config = config || {};
     return d4.baseChart(d4.extend({
-      builder: scatterPlotBuilder,
-      config: {
-        axes: {
-          x: {
-            scale: 'linear'
-          },
-          z: {
-            scale: 'linear'
+        builder: scatterPlotBuilder,
+        config: {
+          axes: {
+            x: {
+              scale: 'linear'
+            },
+            z: {
+              scale: 'linear'
+            }
           }
         }
-      }
-    }, _config))
+      }, _config))
       .mixin([{
         'name': 'circles',
         'feature': d4.features.circleSeries,
